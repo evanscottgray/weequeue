@@ -27,7 +27,6 @@ def add_message(message, sender):
 DEFAULT_OPTIONS = {'show_highlights': 'on',
                    'show_private_message': 'on',
                    'show_message_text': 'on',
-                   'sound': 'off',
                    }
 
 for key, val in DEFAULT_OPTIONS.items():
