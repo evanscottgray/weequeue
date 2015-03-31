@@ -39,7 +39,7 @@ def main(rc):
             title = 'IRC Privmsg from %s' % message.get('sender')
             msg = message.get('message')
             n.notify(msg, sound='tink', title=title)
-        time.sleep(5)
+        time.sleep(3)
 
 if __name__ == '__main__':
     rc = utils.get_redis_client()
