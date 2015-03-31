@@ -1,0 +1,4 @@
+[weequeue]
+redis_port = 6379
+redis_host = my.redis.host.com 
+redis_pass = my_redis_p@ssw0rd
