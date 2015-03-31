@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.insert(0, os.environ['HOME'] + '/.weechat/python/weequeue')
 import weechat
 import json
 import utils
