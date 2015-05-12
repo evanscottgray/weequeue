@@ -1,5 +1,5 @@
 # weequeue
-remote weechat notifications with redis and osx notification center.
+remote weechat notifications with redis and osx notification center, also can use pushbullet.
 
 ## up and running
 optionally start a redis instance:
@@ -38,3 +38,6 @@ python app.py
 
 You should start seeing notifications pop up. For some reason this must be run
  outside of tmux/screen.
+
+
+If you'd like to use pushbullet just set it to true in your config.ini, and add your api key/devices. If you load/reload weequeue in weechat it should just work.
