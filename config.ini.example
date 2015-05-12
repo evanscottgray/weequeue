@@ -2,3 +2,6 @@
 redis_port = 6379
 redis_host = my.redis.host.com 
 redis_pass = my_redis_p@ssw0rd
+pushbullet_notify = True
+pushbullet_api_key = api_key_here 
+pushbullet_devices = these,are,my,device,nicknames

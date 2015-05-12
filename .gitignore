@@ -55,3 +55,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# ignore non example config ini
+config.ini

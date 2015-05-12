@@ -18,6 +18,17 @@ def parse_config():
     return config
 
 
+def boolify(thingie):
+    if isinstance(thingie, bool):
+        return thingie
+
+    if (isinstance(thingie, basestring) and
+            thingie.strip().lower() in ('true', 'on', 'yes', '1')):
+        return True
+
+    return False
+
+
 def get_redis_client(conf=parse_config()):
     r = redis.StrictRedis(host=conf['redis_host'],
                           password=conf['redis_pass'],

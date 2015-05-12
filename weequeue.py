@@ -1,4 +1,8 @@
+import sys
+import os
+sys.path.insert(0, os.environ['HOME'] + '/.weechat/python/weequeue')
 import weechat
+from pb import pb_notify
 import json
 import utils
 
@@ -16,12 +20,16 @@ r = utils.get_redis_client()
 
 def add_highlight(message, sender, channel):
     hl = {'sender': sender, 'channel': channel, 'message': message}
-    r.lpush('highlights', json.dumps(hl))
-
+    pb_notify(hl)
+    json_hl = json.dumps(hl)
+    r.lpush('highlights', json_hl)
+    
 
 def add_message(message, sender):
     msg = {'sender': sender, 'message': message}
-    r.lpush('messages', json.dumps(msg))
+    pb_notify(msg)
+    json_msg = json.dumps(msg)
+    r.lpush('messages', json_msg)
 
 
 DEFAULT_OPTIONS = {'show_highlights': 'on',
