@@ -26,20 +26,23 @@ def get_highlights(rc):
 
 def main(rc):
     while True:
-        highlights = get_highlights(rc=rc)
-        messages = get_private_messages(rc=rc)
-        for highlight in highlights:
-            highlight = json.loads(highlight)
-            title = 'IRC Highlight: %s' % highlight.get('channel')
-            msg = '%s  - %s' % (highlight.get('message'),
-                                highlight.get('sender'))
-            n.notify(msg, sound='default', title=title)
-        for message in messages:
-            message = json.loads(message)
-            title = 'IRC Privmsg from %s' % message.get('sender')
-            msg = message.get('message')
-            n.notify(msg, sound='tink', title=title)
-        time.sleep(5)
+        try:
+            highlights = get_highlights(rc=rc)
+            messages = get_private_messages(rc=rc)
+            for highlight in highlights:
+                highlight = json.loads(highlight)
+                title = 'IRC Highlight: %s' % highlight.get('channel')
+                msg = '%s  - %s' % (highlight.get('message'),
+                                    highlight.get('sender'))
+                n.notify(msg, sound='default', title=title)
+            for message in messages:
+                message = json.loads(message)
+                title = 'IRC Privmsg from %s' % message.get('sender')
+                msg = message.get('message')
+                n.notify(msg, sound='tink', title=title)
+        except:
+            pass
+        time.sleep(3)
 
 if __name__ == '__main__':
     rc = utils.get_redis_client()
